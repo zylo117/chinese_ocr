@@ -5,12 +5,12 @@ import os, sys, cv2
 import glob
 import shutil
 sys.path.append(os.getcwd())
-from lib.networks.factory import get_network
-from lib.fast_rcnn.config import cfg,cfg_from_file
-from lib.fast_rcnn.test import test_ctpn
-from lib.utils.timer import Timer
-from lib.text_connector.detectors import TextDetector
-from lib.text_connector.text_connect_cfg import Config as TextLineCfg
+from ctpn.lib.networks.factory import get_network
+from ctpn.lib.fast_rcnn.config import cfg,cfg_from_file
+from ctpn.lib.fast_rcnn.test import test_ctpn
+from ctpn.lib.utils.timer import Timer
+from ctpn.lib.text_connector.detectors import TextDetector
+from ctpn.lib.text_connector.text_connect_cfg import Config as TextLineCfg
 
 
 def resize_im(im, scale, max_scale=None):

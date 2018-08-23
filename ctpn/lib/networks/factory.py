@@ -9,6 +9,6 @@ def get_network(name):
         elif name.split('_')[1] == 'train':
            return VGGnet_train()
         else:
-           raise KeyError('Unknown dataset: {}'.format(name))
+           raise KeyError('Unknown datasets: {}'.format(name))
     else:
-        raise KeyError('Unknown dataset: {}'.format(name))
+        raise KeyError('Unknown datasets: {}'.format(name))

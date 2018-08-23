@@ -32,6 +32,8 @@ TRAIN:
   FG_FRACTION: 0.3
   WEIGHT_DECAY: 0.0005
 TEST:
+  RUN_ON: '1'
+  GPU_MEM_USAGE: 0.4
   HAS_RPN: True
   DETECT_MODE: O  # H
   checkpoints_path: checkpoints/

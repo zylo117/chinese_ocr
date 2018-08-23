@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 import numpy as np
 import os
 import tensorflow as tf
@@ -70,7 +70,7 @@ class SolverWrapper(object):
         # import tensorflow.python.ops.gen_logging_ops as logging_ops
         from tensorflow.python.ops import gen_logging_ops
         from tensorflow.python.framework import ops as _ops
-        log_image = gen_logging_ops._image_summary(log_image_name, tf.expand_dims(log_image_data, 0), max_images=1)
+        log_image = gen_logging_ops.image_summary(log_image_name, tf.expand_dims(log_image_data, 0), max_images=1)
         _ops.add_to_collection(_ops.GraphKeys.SUMMARIES, log_image)
         # log_image = tf.summary.image(log_image_name, tf.expand_dims(log_image_data, 0), max_outputs=1)
         return log_image, log_image_data, log_image_name
@@ -120,8 +120,8 @@ class SolverWrapper(object):
                 print(('Loading pretrained model '
                    'weights from {:s}').format(self.pretrained_model))
                 self.net.load(self.pretrained_model, sess, True)
-            except:
-                raise 'Check your pretrained model {:s}'.format(self.pretrained_model)
+            except BaseException:
+                raise BaseException('Check your pretrained model {:s}'.format(self.pretrained_model))
 
         # resuming a trainer
         if restore:
@@ -204,7 +204,7 @@ def get_data_layer(roidb, num_classes):
         if cfg.IS_MULTISCALE:
             # obsolete
             # layer = GtDataLayer(roidb)
-            raise "Calling caffe modules..."
+            raise Exception("Calling caffe modules...")
         else:
             layer = RoIDataLayer(roidb, num_classes)
     else:

@@ -8,8 +8,8 @@ from PIL import Image
 
 sys.path.append(os.getcwd() + '/ctpn')
 from ctpn.text_detect import text_detect
-from lib.fast_rcnn.config import cfg_from_file
-from densenet.model import predict as keras_densenet
+from ctpn.lib.fast_rcnn.config import cfg_from_file
+from network.model import predict as keras_densenet
 
 
 def sort_box(box):
@@ -82,6 +82,7 @@ def model(img, adjust=False):
     cfg_from_file('./ctpn/ctpn/text.yml')
     text_recs, img_framed, img = text_detect(img)
     text_recs = sort_box(text_recs)
+    # 加载OCR模型，进行字符识别
     result = charRec(img, text_recs, adjust)
     return result, img_framed
 

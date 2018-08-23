@@ -5,6 +5,7 @@ import glob
 import shutil
 import numpy as np
 
+
 def generate_xml(name, lines, img_size, class_sets, doncateothers=True):
     doc = Document()
 
@@ -149,8 +150,8 @@ if __name__ == '__main__':
                 if cls not in cls_in_image:
                     fs[class_sets_dict[cls]].writelines(stem + ' -1\n')
 
+            f.close()
 
-        (f.close() for f in fs)
         ftrain.close()
 
         print('~~~~~~~~~~~~~~~~~~~')

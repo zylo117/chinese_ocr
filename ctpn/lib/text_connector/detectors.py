@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 import numpy as np
-from lib.fast_rcnn.nms_wrapper import nms
-from lib.fast_rcnn.config import cfg
+from ctpn.lib.fast_rcnn.nms_wrapper import nms
+from ctpn.lib.fast_rcnn.config import cfg
 from .other import normalize
 from .text_proposal_connector import TextProposalConnector
 from .text_proposal_connector_oriented import TextProposalConnector as TextProposalConnectorOriented

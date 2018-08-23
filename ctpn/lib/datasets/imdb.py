@@ -19,7 +19,7 @@ class imdb(object):
         self._roidb = None
         print(self.default_roidb)
         self._roidb_handler = self.default_roidb
-        # Use this dict for storing dataset specific config options
+        # Use this dict for storing datasets specific config options
         self.config = {}
 
     @property

@@ -182,6 +182,10 @@ __C.TEST.RPN_POST_NMS_TOP_N = 1000
 # Proposal height and width both need to be greater than RPN_MIN_SIZE (at orig image scale)
 __C.TEST.RPN_MIN_SIZE = 8
 
+# new
+__C.TEST.RUN_ON = '1'
+__C.TEST.GPU_MEM_USAGE = 0.4
+
 
 #
 # MISC

@@ -1,0 +1,5 @@
+1. Label text using LabelImg
+2. Use voc2txt to change xml into txt
+3. Use split_label to change txt into pre-voc txt
+4. Use ToVoc to change pre-voc txt into standard VOC
+5. Start training

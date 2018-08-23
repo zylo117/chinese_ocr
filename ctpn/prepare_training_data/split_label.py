@@ -3,8 +3,8 @@ import numpy as np
 import math
 import cv2 as cv
 
-path = '/media/D/code/OCR/text-detection-ctpn/data/mlt_english+chinese/image'
-gt_path = '/media/D/code/OCR/text-detection-ctpn/data/mlt_english+chinese/label'
+path = '../datasets/test/image'
+gt_path = '../datasets/test/label'
 out_path = 're_image'
 if not os.path.exists(out_path):
     os.makedirs(out_path)
@@ -16,7 +16,8 @@ for file in files:
     if basename.lower().split('.')[-1] not in ['jpg', 'png']:
         continue
     stem, ext = os.path.splitext(basename)
-    gt_file = os.path.join(gt_path, 'gt_' + stem + '.txt')
+    # gt_file = os.path.join(gt_path, 'gt_' + stem + '.txt')
+    gt_file = os.path.join(gt_path, stem + '.txt')
     img_path = os.path.join(path, file)
     print(img_path)
     img = cv.imread(img_path)
@@ -27,7 +28,7 @@ for file in files:
     im_scale = float(600) / float(im_size_min)
     if np.round(im_scale * im_size_max) > 1200:
         im_scale = float(1200) / float(im_size_max)
-    re_im = cv.resize(img, None, None, fx=im_scale, fy=im_scale, interpolation=cv.INTER_LINEAR)
+    re_im = cv.resize(img, None, None, fx=im_scale, fy=im_scale, interpolation=cv.INTER_LANCZOS4)
     re_size = re_im.shape
     cv.imwrite(os.path.join(out_path, stem) + '.jpg', re_im)
 

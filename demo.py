@@ -6,7 +6,8 @@ import shutil
 import numpy as np
 from PIL import Image
 from glob import glob
-image_files = glob('./test_images/*.*')
+# image_files = glob('./test_images/*.*')
+image_files = glob('./test_images/2018*.*')
 
 
 if __name__ == '__main__':
